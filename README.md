@@ -75,5 +75,5 @@ result.success?
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/opto-task.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kontena/opto-task.
 

@@ -1,5 +1,21 @@
-sudo: false
 language: ruby
 rvm:
+  - 2.0.0-p648
+  - 2.1.8
+  - 2.2.3
   - 2.3.1
+  - 2.3.3
+  - 2.4.0-preview3
+  - jruby-9.1.5.0
+env:
+  - secure: "jnnVCJDc8TalUrEk9urgKsv0HXzg0S/5yY2W2Hy6/R3gihpK7w1hnbk/yDjXpOD6aqp76Ts5nbCpPVeNT2XMC8najCY7/bxQhFp89Ild7JNnpOWOTOqVcjTkoJFXI+zH2WVHwmOvl5Zz/DJISu5hLxPIGlHkYuKnbGtcmyXaeaMfbrDzLLG2Egxp6Sd/6Sn3BxHxtYDq1QlHACrKRauL0ulIg1NjUyMWAPXI280ZRe8cYKlZYkNXWMqM7Uscg/fA5mCB1LoVyaj549EmZwpcBriTNmrm4QPX6LMKjJiRoq194v2pNuD6G3NaV5zmtuai14EoAgg/F0sn1IUtqZpCAb2ggoRsf44Tik+YX9BFeiUJglOzOMrQvEsaNABMoE9KNk0L8SN7uPWA7ZTPUnvx+rBDCr3MKnNQ2wHq8SbJ3sMQd5Wzd/QLnAf6PBncgRVd99HmWwAPciTdT9iYcXTUjZlGIwkGgr+fcz1RG4zsicVYZ3zOHAJk5u18YeqmTic3ZDPGyKKuLuHVa2eK0s4JGgvx5jqK07kKkqHvKkUinTGTIjeRXPZ15FdT1d6e3r78KNfpDf9O/3o4mx4eQx/0dYlkXv+2ztweu3yZ4f1EUn2K6PF0dPCAi4gXxdIdi7GhI10jRaEAQw9LftLXgzFjpvxGKiB7apkfP5dkdoHb8ps="
 before_install: gem install bundler -v 1.12.5
+cache: bundler
+script: bundle install && bundle exec rspec spec/
+deploy:
+  provider: rubygems
+  api_key: $GEM_TOKEN
+  gem: opto-task
+  on:
+    tags: true
+    rvm: 2.3.1
